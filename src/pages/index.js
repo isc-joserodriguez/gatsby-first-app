@@ -3,6 +3,8 @@ import Layout from '../components/Layout';
 
 export default () => (
   <Layout>
-    Hello from gatsby!
+    <h1 style={{ color: "red", textTransform: "uppercase" }}>
+      Hello from gatsby!
+    </h1>
   </Layout>
 )
