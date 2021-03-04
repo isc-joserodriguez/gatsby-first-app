@@ -1,14 +1,8 @@
 import React from "react"
-import { Link } from 'gatsby';
-import Navbar from '../components/Navbar';
+import Layout from '../components/Layout';
 
 export default () => (
-  <div>
-    <Navbar />
-    Hello people!
-    <div>
-      <Link to="/blog">Blog page</Link>
-    </div>
-    <a href="https://www.gatsbyjs.com">Gatsby docs</a>
-  </div>
+  <Layout>
+    Hello from gatsby!
+  </Layout>
 )
