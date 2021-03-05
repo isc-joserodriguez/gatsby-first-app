@@ -7,3 +7,17 @@ h1 {
     color: blue;
     text-transform: uppercase;
 }
+
+p{
+    line-height: 2;
+}
+
+.blog-text{
+    color:red;
+    line-height: 0.5;
+}
+
+.products-text{
+    color:green;
+    line-height: 3;
+}
