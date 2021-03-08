@@ -5,12 +5,20 @@
  */
 
 module.exports = {
-  siteMetadata:{
-    title:'Gatsby Tutorial',
-    description:'Some random description',
-    author:'Jose Rodriguez',
-    data:['item1', 'item2'],
-    person:{name:'Peter',age:23}
+  siteMetadata: {
+    title: 'Gatsby Tutorial',
+    description: 'Some random description',
+    author: 'Jose Rodriguez',
+    data: ['item1', 'item2'],
+    person: { name: 'Peter', age: 23 }
   },
-  plugins: [`gatsby-plugin-styled-components`]
+  plugins: [`gatsby-plugin-styled-components`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/src/images/`,
+      },
+    },
+  ]
 }
