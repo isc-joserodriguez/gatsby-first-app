@@ -8,7 +8,7 @@ const examples = ({ data }) => {
     const { site: { info: { author } } } = data
     return (
         <Layout>
-            <h1>Hello from examples page</h1>
+            <p>Hello from examples page</p>
             <Header />
             <HeaderStatic />
             <h5>Author: {author}</h5>
