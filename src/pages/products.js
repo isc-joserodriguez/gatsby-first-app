@@ -1,4 +1,30 @@
-import React, { Component } from 'react';
+import React from "react"
+import { graphql } from "gatsby"
+
+const ComponentName = ({ data }) => <pre>{JSON.stringify(data, null, 4)}</pre>
+
+export const query = graphql`
+  {
+    allContentfulProduct {
+      nodes {
+        id
+        price
+        title
+        slug
+        image {
+          fluid {
+            ...GatsbyContentfulFluid
+          }
+        }
+      }
+    }
+  }
+`
+
+export default ComponentName;
+
+
+/* import React, { Component } from 'react';
 import Layout from '../components/Layout';
 import classes from '../components/products.module.css';
 
@@ -17,3 +43,4 @@ export default class products extends Component {
         )
     }
 }
+ */
