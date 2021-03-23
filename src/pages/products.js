@@ -1,7 +1,29 @@
-import React from "react"
-import { graphql } from "gatsby"
+import React from 'react';
+import { graphql } from 'gatsby';
+import Layout from '../components/Layout';
+import classes from '../components/products.module.css';
+import Image from 'gatsby-image';
+import { Link } from 'gatsby';
 
-const ComponentName = ({ data }) => <pre>{JSON.stringify(data, null, 4)}</pre>
+const Products = ({ data }) => {
+    const { allContentfulProduct: { nodes: products } } = data;
+    return (
+        <Layout>
+            <section className={classes.page}>
+                {products.map(product => {
+                    console.log(product)
+                    return (
+                        <article key={product.id}>
+                            <Image fluid={product.image.fluid} alt={product.title} />
+                            <h3>{product.title} <span>${product.price}</span></h3>
+                            <Link to={`/products/${product.slug}`}>More details</Link>
+                        </article>
+                    )
+                })}
+            </section>
+        </Layout>
+    )
+}
 
 export const query = graphql`
   {
@@ -21,26 +43,4 @@ export const query = graphql`
   }
 `
 
-export default ComponentName;
-
-
-/* import React, { Component } from 'react';
-import Layout from '../components/Layout';
-import classes from '../components/products.module.css';
-
-export default class products extends Component {
-    render() {
-        return (
-            <Layout>
-                <div className={classes.page}>
-
-                    <h1>This is our products page</h1>
-                    <p className={classes.text}>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto est quidem enim excepturi inventore beatae assumenda ut magni aliquid voluptatibus laudantium sunt totam natus, quibusdam esse error perspiciatis, ipsa recusandae.
-                    </p>
-                </div>
-            </Layout>
-        )
-    }
-}
- */
+export default Products;
